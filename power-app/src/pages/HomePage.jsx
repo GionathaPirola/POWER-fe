@@ -1,25 +1,25 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header.jsx';
+import { getModel } from '../commons/Model.js';
 
 function HomePage() {
     const navigate = useNavigate();
-    const [username, setUsername] = useState('');
-
-    useEffect(() => {
-        const storedUsername = localStorage.getItem('username');
-        if (storedUsername !== 'admin') {
-            navigate('/');
-        } else {
-            setUsername(storedUsername);
-        }
-    }, [navigate]);
+    const model = getModel();
 
     return (
         <div className="common-container">
-            <main>
-                <h2>Benvenuto nella HomePage!</h2>
-            </main>
+            <h2 className="homepage-description">{model.HOMEPAGE.DESCRIPTION}</h2>
+            <div className="homepage-buttons-row">
+                <button className="homepage-button"
+                        onClick={() => navigate('/workout-home')}
+                >
+                    {model.HOMEPAGE.WORKOUT_BUTTON}
+                </button>
+                <button className="homepage-button"
+                        onClick={() => console.log('TODO')}
+                >
+                    {model.HOMEPAGE.DIET_BUTTON}
+                </button>
+            </div>
         </div>
     );
 }

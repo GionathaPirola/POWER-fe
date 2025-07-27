@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import '../styles/style.css';
 
 function LoginPage({ onLogin }) {
@@ -20,6 +20,10 @@ function LoginPage({ onLogin }) {
             setError('Errore: invalid username');
         }
     };
+
+    useEffect(() => {
+        localStorage.removeItem('username');
+    }, []);
 
     return (
         <div className="common-container">
