@@ -1,65 +1,106 @@
-/* src/style.css */
+/* COMMON STYLES */
+.common-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+}
 
-/* HOMEPAGE STYLES */
-  .homepage-container {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #232526 0%, #414345 100%);
-  }
 
-  .homepage-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.5rem;
-    color: #fff;
-    letter-spacing: 8px;
-    text-shadow: 0 4px 24px #000a, 0 1px 0 #007bff;
-    margin-bottom: 32px;
-  }
 
-  .homepage-form {
-    display: flex;
-    flex-direction: column;
-    width: 320px;
-    gap: 18px;
-    background: rgba(255,255,255,0.10);
-    padding: 36px 28px;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px #0002;
-    backdrop-filter: blur(4px);
-  }
 
-  .homepage-input {
-    padding: 12px;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    border: 1.5px solid #007bff;
-    outline: none;
-    background: #fff9;
-    transition: border 0.2s;
-  }
+/* LOGIN STYLES */
 
-  .homepage-input:focus {
-    border: 1.5px solid #0056b3;
-  }
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  gap: 18px;
+  background: rgba(255,255,255,0.10);
+  padding: 36px 28px;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #0002;
+  backdrop-filter: blur(4px);
+}
 
-  .homepage-button {
-    padding: 12px;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    letter-spacing: 2px;
-    box-shadow: 0 2px 8px #007bff44;
-    transition: background 0.2s;
-  }
+.login-input {
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: 1.5px solid #007bff;
+  outline: none;
+  background: #fff9;
+  transition: border 0.2s;
+}
 
-  .homepage-button:hover {
-    background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
-  }
+.login-input:focus {
+  border: 1.5px solid #0056b3;
+}
+
+.login-button {
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 2px;
+  box-shadow: 0 2px 8px #007bff44;
+  transition: background 0.2s;
+}
+
+.login-button:hover {
+  background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+}
+
+/* HEADER STYLES */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #222;
+  color: #fff;
+  padding: 0.2% 2.5%;
+  z-index: 1000;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.header-title {
+  margin: 0 auto;
+  font-size: 2.2rem;
+  color: #fff;
+  letter-spacing: 8px;
+  text-shadow: 0 4px 24px #000a, 0 1px 0 #007bff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header-username-box {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #f0f0f0;
+  border-radius: 12px;
+  padding: 8px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+}
+
+.header-username {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/*------------------------------*/

@@ -1,19 +1,25 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header.jsx';
 
 function HomePage() {
     const navigate = useNavigate();
+    const [username, setUsername] = useState('');
 
     useEffect(() => {
-        const username = localStorage.getItem('username');
-        if (username !== 'admin') {
+        const storedUsername = localStorage.getItem('username');
+        if (storedUsername !== 'admin') {
             navigate('/');
+        } else {
+            setUsername(storedUsername);
         }
     }, [navigate]);
 
     return (
-        <div className="homepage-container">
-            <h1 className="homepage-title">Benvenuto nella HomePage!</h1>
+        <div className="common-container">
+            <main>
+                <h2>Benvenuto nella HomePage!</h2>
+            </main>
         </div>
     );
 }

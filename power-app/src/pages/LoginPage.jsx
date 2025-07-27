@@ -4,19 +4,28 @@ import '../styles/style.css';
 function LoginPage({ onLogin }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const isUsernameValid = (username) => {
+        return username === 'admin';    //TODO implementare login
+    }
 
     const handleLogin = (e) => {
         e.preventDefault();
-        localStorage.setItem('username', username);
-        onLogin(username);
+        if(isUsernameValid(username)) {
+            localStorage.setItem('username', username);
+            onLogin(username);
+            setError('');
+        } else {
+            setError('Errore: invalid username');
+        }
     };
 
     return (
-        <div className="homepage-container">
-            <h1 className="homepage-title">POWER</h1>
-            <form className="homepage-form" onSubmit={handleLogin}>
+        <div className="common-container">
+            <form className="login-form" onSubmit={handleLogin}>
                 <input
-                    className="homepage-input"
+                    className="login-input"
                     type="text"
                     placeholder="Username"
                     value={username}
@@ -24,17 +33,18 @@ function LoginPage({ onLogin }) {
                     required
                 />
                 <input
-                    className="homepage-input"
+                    className="login-input"
                     type="password"
                     placeholder="Password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     required
                 />
-                <button className="homepage-button" type="submit">
+                <button className="login-button" type="submit">
                     Login
                 </button>
             </form>
+            {error && <div className="error-message">{error}</div>}
         </div>
     );
 }
