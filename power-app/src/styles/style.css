@@ -32,6 +32,14 @@
   transform: translateY(-2px) scale(1.03);
 }
 
+.save-style:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
 .cancel-style {
   background: linear-gradient(90deg, #ff6f61 60%, #ff8566 100%);
   color: #fff;
@@ -42,6 +50,11 @@
   transform: translateY(-2px) scale(1.03);
 }
 
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
 
 /* LOGIN STYLES */
 
