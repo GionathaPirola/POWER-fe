@@ -1,6 +1,9 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage.jsx';
 import HomePage from './pages/HomePage.jsx';
+import './styles/index.css';
 
 function LoginWrapper() {
     const navigate = useNavigate();
@@ -11,7 +14,7 @@ function LoginWrapper() {
     return <LoginPage onLogin={handleLogin} />;
 }
 
-function App() {
+function AppRoutes() {
     return (
         <Routes>
             <Route path="/" element={<LoginWrapper />} />
@@ -20,4 +23,10 @@ function App() {
     );
 }
 
-export default App;
+createRoot(document.getElementById('root')).render(
+    <StrictMode>
+        <BrowserRouter>
+            <AppRoutes />
+        </BrowserRouter>
+    </StrictMode>
+);
