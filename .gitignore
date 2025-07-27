@@ -1,0 +1,24 @@
+# === IDE-specific ===
+/shelf/
+/workspace.xml
+/httpRequests/
+/mavenHomeManager.xml
+/dataSources/
+/dataSources.local.xml
+.idea/
+.vscode/
+
+# === Node.js / JavaScript ===
+node_modules/
+dist/
+*.log
+yarn.lock
+npm-debug.log*
+
+# === Env files ===
+.env*
+!.env.example
+
+# === System files ===
+.DS_Store
+Thumbs.db
