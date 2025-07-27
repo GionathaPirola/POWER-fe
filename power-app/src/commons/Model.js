@@ -5,6 +5,9 @@ export const MODEL = {
         DESCRIPTION: 'Select an option to manage your workouts or meal plans',
     },
     WORKOUT: {
+        NEW_WORKOUT:{
+            ADD_BUTTON: 'Add Workout',
+        },
         DESCRIPTION: 'Workout plans',
     },
 };
