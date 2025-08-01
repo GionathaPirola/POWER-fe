@@ -1,29 +1,31 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import '../styles/style.css';
+import {useNavigate} from "react-router-dom";
+import {ApiCalls} from "../commons/api/Client.jsx";
 
-function LoginPage({ onLogin }) {
+function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-    const isUsernameValid = (username) => {
-        return username === 'admin';    //TODO implementare login
-    }
-
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        if(isUsernameValid(username)) {
-            localStorage.setItem('username', username);
-            onLogin(username);
-            setError('');
-        } else {
-            setError('Errore: invalid username');
+        setError('');
+        try {
+            const data = await ApiCalls.LOGIN(createPayload());
+            localStorage.setItem('accessToken', data.accessToken);
+            localStorage.setItem('refreshToken', data.refreshToken);
+            navigate('/home', { replace: true });
+        } catch (err) {
+            console.log(err.message || 'Login error');
+            setError("Invalid username or password");
         }
     };
 
-    useEffect(() => {
-        localStorage.removeItem('username');
-    }, []);
+    const createPayload = () => {
+        return { username, password };
+    }
 
     return (
         <div className="common-container">

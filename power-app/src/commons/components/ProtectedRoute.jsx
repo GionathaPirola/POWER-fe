@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom';
 
 function ProtectedRoute({ children }) {
-    const username = localStorage.getItem('username');
-    if (username !== 'admin') { //TODO: implementare login con access token ecc
+    const refreshToken = localStorage.getItem('refreshToken');
+    if (!refreshToken) {    //TODO: implement getUserInfo request to check if user is logged in
         return <Navigate to="/login" replace />;
     }
     return children;

@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import {getModel} from "../../../commons/Model.js";
-import Client from '../../../commons/api/Client.jsx';
-
 const NewWorkoutPopup = ({ onClose }) => {
     const model = getModel();
     const [file, setFile] = useState(null);
@@ -17,7 +15,7 @@ const NewWorkoutPopup = ({ onClose }) => {
             setError('File not selected');
             return;
         }
-        Client.uploadWorkout(file).then(r => console.log(r));
+        //Client.uploadWorkout(file).then(r => console.log(r));
     };
 
     return (
